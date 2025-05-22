@@ -56,4 +56,5 @@ def search_direct():
     return jsonify(requests.get(url, headers=headers, params=params).json())
 
 def find_leg(token, origin, dest, date):
-    url = "https://test.api.amadeus.com
+url = "https://test.api.amadeus.com/v2/shopping/flight-offers"
+
