@@ -126,5 +126,15 @@ if __name__ == "__main__":
 
 
 def find_leg(token, origin, dest, date):
-url = "https://test.api.amadeus.com/v2/shopping/flight-offers"
+    url = "https://test.api.amadeus.com/v2/shopping/flight-offers"
+    headers = {'Authorization': f'Bearer {token}'}
+    params = {
+        "originLocationCode": origin,
+        "destinationLocationCode": dest,
+        "departureDate": date,
+        "adults": 1,
+        "max": 2
+    }
+    response = requests.get(url, headers=headers, params=params)
+    return response.json().get("data", [])
 
